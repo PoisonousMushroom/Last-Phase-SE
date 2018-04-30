@@ -5,7 +5,7 @@
 
 #include <algorithm>
 #include <string>
-using std::string;
+using namespace std;
 namespace aux{
     struct tcolor{
         int c; //0 or 1 for black or red 

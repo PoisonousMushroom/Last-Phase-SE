@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>Bug.h</itemPath>
+      <itemPath>Cell.h</itemPath>
+      <itemPath>Exception.h</itemPath>
+      <itemPath>Instruction.h</itemPath>
+      <itemPath>Instruction_direction.h</itemPath>
+      <itemPath>Instruction_drop.h</itemPath>
+      <itemPath>Instruction_flip.h</itemPath>
+      <itemPath>Instruction_mark.h</itemPath>
+      <itemPath>Instruction_move.h</itemPath>
+      <itemPath>Instruction_pickup.h</itemPath>
+      <itemPath>Instruction_sense.h</itemPath>
+      <itemPath>Instruction_turn.h</itemPath>
+      <itemPath>Instruction_unmark.h</itemPath>
+      <itemPath>Marker.h</itemPath>
+      <itemPath>Program.h</itemPath>
+      <itemPath>Structs.h</itemPath>
+      <itemPath>World.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>Bug.cpp</itemPath>
+      <itemPath>Cell.cpp</itemPath>
+      <itemPath>Instruction_direction.cpp</itemPath>
+      <itemPath>Instruction_move.cpp</itemPath>
+      <itemPath>Instruction_pickup.cpp</itemPath>
+      <itemPath>Instruction_sense.cpp</itemPath>
+      <itemPath>Marker.cpp</itemPath>
+      <itemPath>Program.cpp</itemPath>
+      <itemPath>World.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+      <logicalFolder name="f1" displayName="CellTest" projectFiles="true" kind="TEST">
+        <itemPath>tests/CellTest.cpp</itemPath>
+        <itemPath>tests/CellTest.h</itemPath>
+        <itemPath>tests/CellTestRunner.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2"
+                     displayName="WorldTest"
+                     projectFiles="true"
+                     kind="TEST">
+        <itemPath>tests/WorldTest.cpp</itemPath>
+        <itemPath>tests/WorldTest.h</itemPath>
+        <itemPath>tests/WorldTestRunner.cpp</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>8</standard>
+          <commandlineTool>g++</commandlineTool>
+        </ccTool>
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
+      </compileType>
+      <item path="Bug.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Bug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Cell.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Cell.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Exception.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_direction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_direction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_drop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_flip.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_mark.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_move.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_move.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_pickup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_pickup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_sense.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_sense.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_turn.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_unmark.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Marker.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Marker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Program.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Program.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Structs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="World.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="World.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <folder path="TestFiles">
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/CellTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/CellTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/CellTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/WorldTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/WorldTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/WorldTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
+      </compileType>
+      <item path="Bug.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Bug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Cell.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Cell.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Exception.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_direction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_direction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_drop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_flip.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_mark.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_move.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_move.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_pickup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_pickup.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_sense.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Instruction_sense.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_turn.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Instruction_unmark.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Marker.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Marker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Program.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Program.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Structs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="World.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="World.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <folder path="TestFiles">
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f1">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/CellTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/CellTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/CellTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/WorldTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/WorldTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/WorldTestRunner.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

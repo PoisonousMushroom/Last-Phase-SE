@@ -43,14 +43,7 @@ public:
         color = c;
         prog_id = new_pid;
         resting = new_resting;
-        remaining_rest=0;
-//        cout << "Bug has been init'd with following parameters: \n" 
-//                << "Color:" << color.c 
-//                << "\n ID: "<< prog_id 
-//                << "\n Resting: "<< resting 
-//                << "\n Remaining rest: "<< remaining_rest;
-                
-        
+        remaining_rest=0;                    
     }
     
     //Getter functions, as per bug.pdf
@@ -135,7 +128,7 @@ public:
             throw Exception("Bug is already dead!\n");
         }
         dead = true;
-//        cout << "Killed the bug!" << endl;
+        cout << "Killed the bug!" << endl;
     }
     
     inline bool operator==(const Bug& b){ 

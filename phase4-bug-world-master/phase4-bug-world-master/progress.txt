@@ -1,0 +1,19 @@
+//Phase 1 - Adam Touzani & Giorgi Kabanashvili
+
+Implemented World.h and World.cpp
+Implemented Cell.h and Cell.cpp
+Preliminary Unit Testing for World.h and World.cpp based on CppUnit
+* Unit testing still requires modifications to run properly *
+
+Implemented Bug.h and Bug.cpp
+
+
+//Phase 4 - Lorik & David
+Created README file
+Implemented instruction_drop.cpp,
+Implemented instruction_flip.cpp,
+Implemented instruction_mark.cpp,
+Implemented instruction_turn.cpp,
+Implemented instruction_unmark.cpp,
+Wrote BugTest.cpp,
+Wrote MarkerTest.cpp

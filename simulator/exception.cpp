@@ -11,8 +11,8 @@
  * Created on March 4, 2018, 1:00 PM
  */
 
-#include "./headers/exception.h"
-#include "./headers/bug.h"
+#include "exception.h"
+#include "bug.h"
 Exception::Exception(const char* msg){
     reason = msg;
 }
