@@ -112,4 +112,5 @@ bool Bug::is_dead()
 void Bug::kill()
 {
     dead = true;
+
 }
