@@ -6,7 +6,7 @@
 #include "checkforbugs.h"
 
 
-void l_move::execute(Bug b, World w)
+void I_move::execute(Bug b, World w)
 {
     int nx,ny;
     aux::tposition t=b.get_position();
@@ -29,7 +29,7 @@ void l_move::execute(Bug b, World w)
     }
 }
 
-void l_move::parse(string args)
+void I_move::parse(string args)
 {
     vector<string> command=tokens_in_vector(args);
     vector<string>::iterator it=command.begin();
