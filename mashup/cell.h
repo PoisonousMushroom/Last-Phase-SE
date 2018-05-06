@@ -68,3 +68,4 @@ public:
      */    
     bool is_red_home_area();
 };
+#endif

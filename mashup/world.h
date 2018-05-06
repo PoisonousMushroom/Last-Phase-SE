@@ -9,7 +9,7 @@
 #include "bug.h"
 #include "aux.h"
 #include <vector>
-#include "Cell.h"
+#include "cell.h"
 #include "program.h"
 #define MAX_SIZE 500;
 

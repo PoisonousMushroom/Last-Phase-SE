@@ -11,7 +11,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "Cell.h"
+#include "cell.h"
 #include <algorithm>
 #include "program.h"
 #include "tokenizer.h"
@@ -71,7 +71,7 @@ int World::load(string filenames){
             if(line[w] == '+'){
                 //Bug new_bug = (new_cell->get_occupant());                
                 Bug *new_bug = new Bug(red, rbcount+bbcount, 0);
-                new_bug->set_position(w, l);
+                new_bug->set_position(tposition(l,w));
                 new_bug->set_food(false);
                 redbugs.push_back(new_bug);
                 new_cell->set_occupant(redbugs[rbcount]);
@@ -81,7 +81,7 @@ int World::load(string filenames){
             if(line[w] == '-'){
                 //Bug new_bug = (new_cell->get_occupant());
                 Bug *new_bug = new Bug(black, bbcount+rbcount, 0);
-                new_bug->set_position(w, l);
+                new_bug->set_position(tposition(l,w));
                 new_bug->set_food(false);
                 blackbugs.push_back(new_bug);
                 new_cell->set_occupant(blackbugs[bbcount]);
@@ -247,7 +247,7 @@ bool World::place_at(aux::tposition p, Bug* b){
         throw ("The cell is already occupied!");
     }
     else{
-        b->set_position(p.x, p.y);
+        b->set_position(p);
     }
 }
 

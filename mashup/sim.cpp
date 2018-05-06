@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "exception.h"
 #include <iostream>
-#include "../simulator/world.h"
+#include "world.h"
 #include "aux.h"
 #include "./assembler/assembler.h"
 
@@ -254,7 +254,7 @@ int main(int argc, string * argv)
                             if(c->occupied())
                             {
                                 Bug* b=c->get_occupant();
-                                id=b->get_prog_id();
+                                id=b->get_progid();
                                 if(id<10)
                                     cout<<"00"<<id<<" ";
                                 else if(id<100)
@@ -265,11 +265,11 @@ int main(int argc, string * argv)
                                     cout<<"b";
                                 else 
                                     cout<<"r";
-                                if(b->get_has_food())
+                                if(b->get_food())
                                     cout<<"X";
                                 else    
                                     cout<<"_";
-                                cout<<b->get_direction()<<" ";
+                                cout<<b->get_direction().d<<" ";
 
                             }
                             cout<<"\n";
