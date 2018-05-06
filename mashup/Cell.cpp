@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 #include "cell.h"
 #include "exception.h"
 
@@ -51,7 +57,7 @@ bool Cell::get_obstructed()
     return obstructed;
 }
 
-Bug* Cell::::get_occupant() {
+Bug* Cell::get_occupant() {
     if(occupant){
         return occupant;
     }
@@ -65,12 +71,21 @@ void Cell::set_occupant(Bug* new_occupant) {
     obstructed=true;
 }
 
-bool Cell::isBlackHomeArea()
-{
-    return homeBlackBug;
+void Cell::set_occupancy(bool b){
+    occupant_set = b;
+    occupant=NULL;
 }
 
-bool Cell::isRedHomeArea()
+bool Cell::is_black_home_area()
 {
-    return homeRedBug;
+    return home_black_bug;
+}
+
+bool Cell::is_red_home_area()
+{
+    return home_red_bug;
+}
+
+bool Cell::occupied(){
+    return occupant_set;
 }

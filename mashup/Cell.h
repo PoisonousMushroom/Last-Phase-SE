@@ -1,7 +1,15 @@
-#include "bug.h"
-#include "marker.h"
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 #ifndef CELL_H
 #define CELL_H
+
+#include "bug.h"
+#include "marker.h"
+
 class Cell{
 private:
     Bug* occupant;
@@ -42,6 +50,9 @@ public:
      * Get method for the cells food count.
      * @return int: current amount of food in the cell.
      */
+    
+    void set_occupancy(bool);
+    
     int get_food();
 
     /*
@@ -67,5 +78,16 @@ public:
      * @return bool: whether or not the cell is a red home area.
      */    
     bool is_red_home_area();
+<<<<<<< HEAD:mashup/cell.h
 };
+=======
+    
+    char get_char(){
+            return c;
+        }
+    
+    bool occupied();
+};
+
+>>>>>>> 21fd2aff7e4a10900b591e9225b7d032d1fac597:mashup/Cell.h
 #endif
