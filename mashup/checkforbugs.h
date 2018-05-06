@@ -1,3 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+#ifndef CHECKFORBUGS_H
+#define CHECKFORBUGS_H
 
 #include "world.h"
 #include "bug.h"
@@ -45,7 +54,7 @@ void checkforsurrounded(World *w,int x, int y)
         {
             cell.set_occupancy(false);
             bug.kill();
-            int val=bug.get_has_food();
+            int val=bug.get_food();
             cell.set_food(cell.get_food()+val);
         }
     }
@@ -61,3 +70,5 @@ void checkforbugs(World *w, int x, int y)//checks for adjacent bugs
         checkforsurrounded(w,adjx,adjy);
     }
 }
+
+#endif

@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 #include "tokenizer.h"
 #include "I_pickup.h"
 #include <vector>
@@ -7,14 +13,14 @@ void I_pickup::execute(Bug b, World w)
 {
     aux::tposition t=b.get_position();
     Cell &cell=*w.get_cell(t);
-    if(b.get_has_food()||cell.get_food()==0)
+    if(b.get_food()||cell.get_food()==0)
     {
         b.set_state(y);
     }
     else
     {
         cell.set_food(cell.get_food()-1);
-        b.set_has_food(true);
+        b.set_food(true);
         b.set_state(x);
     }
 }

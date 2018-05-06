@@ -1,8 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-#ifndef L_MOVE_H
-#define L_MOVE_H
+
+#ifndef I_MOVE_H
+#define I_MOVE_H
 #include "aux.h"
-#include "instruction.h"
 
 class I_move{
 private:
@@ -14,4 +19,4 @@ public:
 };
 
 
-#endif /* L_MOVE_H */
+#endif /* I_MOVE_H */

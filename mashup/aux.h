@@ -1,8 +1,15 @@
-#include "exception.h"
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
 
 #ifndef AUX_H
 #define AUX_H
 
+#include "exception.h"
 #include <algorithm>
 #include <string>
 using namespace std;
@@ -140,4 +147,3 @@ namespace aux{
     };
 };
 #endif /* AUX_H */
-

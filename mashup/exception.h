@@ -4,12 +4,6 @@
  * and open the template in the editor.
  */
 
-/* 
- * File:   exception.h
- * Author: mohit
- *
- * Created on March 4, 2018, 1:00 PM
- */
 
 #ifndef EXCEPTION_H
 #define EXCEPTION_H
@@ -26,4 +20,3 @@ private:
 };
 
 #endif /* EXCEPTION_H */
-

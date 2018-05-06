@@ -1,3 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
 #ifndef L_PICKUP_H
 #define L_PICKUP_H
 #include "instruction.h"
@@ -25,3 +32,4 @@ private:
 };
 
 #endif /* L_PICKUP_H */
+

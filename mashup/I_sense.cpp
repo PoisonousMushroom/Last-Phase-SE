@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 #include "I_sense.h"
 #include "tokenizer.h"
 #include "adjacent_cell.h"
@@ -22,11 +28,11 @@ bool cellmatch(World w, int x, int y, aux::tcondition condition, aux::tcolor col
                 break;
             //FriendWithFood
             case 2:
-                match = cell->occupied() && color.c == bug->get_color().c && bug->get_has_food();
+                match = cell->occupied() && color.c == bug->get_color().c && bug->get_food();
                 break;
             //FoeWithFood
             case 3:
-                match = cell->occupied() && color.c != bug->get_color().c && bug->get_has_food();
+                match = cell->occupied() && color.c != bug->get_color().c && bug->get_food();
                 break;
             //Food
             case 4:

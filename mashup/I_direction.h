@@ -1,5 +1,12 @@
-#ifndef L_DIRECTION_H
-#define L_DIRECTION_H
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
+#ifndef I_DIRECTION_H
+#define I_DIRECTION_H
 #include "instruction.h"
 
 using namespace aux;
@@ -24,4 +31,4 @@ private:
     tstate x, y;
 };
 
-#endif /* L_DIRECTION_H */
+#endif /* I_DIRECTION_H */

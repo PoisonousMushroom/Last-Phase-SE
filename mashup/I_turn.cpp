@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 #include "I_turn.h"
 #include <vector>
 #include <string>
@@ -16,13 +22,13 @@ int turn (aux::tleftright l,aux::tdirection dir)
     }
 }
 
-void l_turn::execute(Bug b)
+void I_turn::execute(Bug b)
 {
     b.set_direction(turn(lr,b.get_direction()));
     b.set_state(z);
 }
 
-void l_turn::parse(string args)
+void I_turn::parse(string args)
 {
     vector<string> command=tokens_in_vector(args);
     vector<string>::iterator it=command.begin();
