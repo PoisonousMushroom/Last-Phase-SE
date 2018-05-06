@@ -18,16 +18,16 @@
 class Program{
 private:
   int id;
-  vector<l_direction> ldi;
-  vector<l_drop> ldr;
-  vector<l_flip> lfl;
-  vector<l_mark> lma;
-  vector<l_move> lmo;
-  vector<l_pickup> lpi;
-  vector<l_sense> lse;
-  vector<l_turn> ltu;
-  vector<l_unmark> lun;
-  map<int,pair<int,string>> order;
+  vector<I_direction> ldi;
+  vector<I_drop> ldr;
+  vector<I_flip> lfl;
+  vector<I_mark> lma;
+  vector<I_move> lmo;
+  vector<I_pickup> lpi;
+  vector<I_sense> lse;
+  vector<I_turn> ltu;
+  vector<I_unmark> lun;
+  map<int,(std::pair<int,std::string>)> order;
   World w;
   /*
   The values in order tell from which vector must we take the next command 

@@ -78,16 +78,11 @@ public:
      * @return bool: whether or not the cell is a red home area.
      */    
     bool is_red_home_area();
-<<<<<<< HEAD:mashup/cell.h
-};
-=======
-    
-    char get_char(){
-            return c;
-        }
-    
-    bool occupied();
-};
 
->>>>>>> 21fd2aff7e4a10900b591e9225b7d032d1fac597:mashup/Cell.h
+    bool occupied();
+    char get_char()
+    {
+        return c;
+    }
+};
 #endif

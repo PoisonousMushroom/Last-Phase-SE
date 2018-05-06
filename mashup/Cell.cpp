@@ -14,18 +14,22 @@ Cell::Cell(char symb) {
         obstructed = true;
         home_black_bug = false;
         home_red_bug = false;
+        food=false;
     } else if (symb == '-') {
         obstructed = false;
         home_black_bug = true;
         home_red_bug = false;
+        food=false;
     } else if (symb == '+') {
         obstructed = false;
         home_black_bug = false;
         home_red_bug = true;
+        food=false;
     } else if (symb == '.') {
         obstructed = false;
         home_black_bug = false;
         home_red_bug = false;
+        food=false;
     } else if (symb >= 49 && symb <= 57) {
         obstructed = false;
         home_black_bug = false;

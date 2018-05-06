@@ -5,7 +5,7 @@
 
 using namespace aux;
 
-class Instruction_sense: public Instruction 
+class I_sense: public Instruction 
 {
 public:
     

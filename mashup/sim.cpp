@@ -191,6 +191,7 @@ int main(int argc, string * argv)
                         cout<<"black bugs\n";
                     else
                         cout<<"red bugs\n";
+                    cout<<"\n";
                 }
                 if(log==1)
                 {
@@ -271,12 +272,59 @@ int main(int argc, string * argv)
                                     cout<<"_";
                                 cout<<b->get_direction().d<<" ";
 
+                                state=b->get_state().st;
+                                if(state<10)
+                                    cout<<"0000"<<state<<" ";
+                                else if(state<100)
+                                    cout<<"000"<<state<<" ";
+                                else if(state<1000)
+                                    cout<<"00"<<state<<" ";
+                                else
+                                    cout<<"0"<<state<<" ";
+                                
+                                //print rest 0000 if rested 0014 if not
+                                if(b->rested())
+                                    cout<<"0000";
+                                else
+                                    cout<<"0001";
                             }
                             cout<<"\n";
                         }
                     }
+                    cout<<"For cycle "<<i<<"the winners are the ";
+                    if(winner.c==0)
+                        cout<<"black bugs\n";
+                    else
+                        cout<<"red bugs\n";
+                    cout<<"\n";
+                }
+                if(log==2)
+                {
+                    cout<<"The map initially looked like:\n";
+                    w.print_grid();
+                    cout<<"The map now looks like this in terms of food:\n";
+                    for(int k=0;k<w.get_length();k++)
+                    {
+                        for(int j=0;k<w.get_width();j++)
+                        {
+                            Cell* c=w.get_cell(tposition(k,j));
+                            if(c->get_char()=='#')
+                                cout<<"#"<<" ";
+                            else
+                                cout<<c->get_food()<<" ";
+                        }
+                        cout<<endl;
+                    }
+                    cout<<"For cycle "<<i<<"the winners are the ";
+                    if(winner.c==0)
+                        cout<<"black bugs\n";
+                    else
+                        cout<<"red bugs\n";
+                    cout<<"\n";
+                    cout<<endl;
                 }
             }
         }
     }
+    return 0;
 }

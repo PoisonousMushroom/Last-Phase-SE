@@ -1,28 +1,17 @@
-#ifndef INSTRUCTION_MARK_H
-#define INSTRUCTION_MARK_H
 
+#ifndef L_MOVE_H
+#define L_MOVE_H
+#include "aux.h"
 #include "instruction.h"
-using namespace aux;
 
-class I_mark: public Instruction 
-{
-public:
-    
-    /*
-     * Execute this instruction on a given bug.
-     * @param b: Bug to execute the instruction on.
-     * @param w: The world in which we need to action
-     */
-    void execute(Bug b,World w);
-    
-    /*
-     * Parse the instruction, given a string.
-     * @param instr: coded instruction in string to parse the instruction from.
-     */
-    void parse(std::string instr);
+class I_move{
 private:
-    int m;
-    tstate z;
+    aux::tstate x;
+    aux::tstate y;
+public:
+    void execute(Bug b, World w);
+    void parse(string args);
 };
 
-#endif /* INSTRUCTION_MARK_H */
+
+#endif /* L_MOVE_H */
