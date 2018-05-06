@@ -5,7 +5,7 @@
 #include <map>
 #include <sstream>
 #include <vector>
-
+#include "../exception.h"
 #include <numeric>
 #include <valarray> //accumulate()
 
@@ -45,7 +45,7 @@ vector<std::string> split(string s, char delim){
     }
     return elems;
 }
-int main(int argc, char** argv) { 
+string convert(string s, int i) { 
     
     //Dictionary of known key words
     //The integer values indicate the total number of words that 
@@ -84,16 +84,16 @@ int main(int argc, char** argv) {
     outfile.open("output.txt", ios::out);
     if(outfile.fail()){
         cout << "output.txt is not accessible. \n";
-        return (int)'O';
+        throw Exception("Output couldn't be accessed\n");
     }
     //Keeps track of occasions where there is an else statement and a goto right after.
     bool elseflag = 0;
     string c;
     fstream infile;
-    infile.open("bug.buggy", ios::in);
+    infile.open(s, ios::in);
     if(infile.fail()){
-        cout << "Buggy file is not accessible. \n";
-        return (int)'B';
+        cout << "Bug file is not accessible. \n";
+         throw Exception("The Bug file couldn't be accessed\n");
     }
     while (getline(infile, c)){
         if(c[0] != ';' && c[0] != '_'){
@@ -176,7 +176,7 @@ int main(int argc, char** argv) {
                             break;
                         default:
                             throw("Chunksize cannot be 0! ");
-                            return (int)'C';
+                            throw Exception("Chunksize cannot be 0\n");
                             break;
                     }
                 }
@@ -255,7 +255,7 @@ int main(int argc, char** argv) {
     step2.open("output.txt", ios::in);
     if(step2.fail()){
         cout << "Step 2: output.txt is not available for secondary processing.\n";
-        return (int)'S';
+        throw Exception("Output is not available for second process\n");
     }
     
     while (getline(step2, c)){
@@ -277,12 +277,21 @@ int main(int argc, char** argv) {
     printvv(answerorg);
     
     //Rewrite the result into final.txt
-    outfile.open("final.txt", ios::out);
-    if(outfile.fail()){
-        cout << "final.txt failed to be created. \n";
-        return (int)'F';
+    if(i==0)
+    {
+        outfile.open("black.txt", ios::out);
+        if(outfile.fail()){
+            throw  Exception("Final file failed to be created");
+        }
     }
-    
+    else
+    {
+        outfile.open("red.txt", ios::out);
+        if(outfile.fail()){
+            throw  Exception("Final file failed to be created");
+        }
+    }
+
     for (int i = 0; i < answerorg.size(); i++){
         for (int j = 0; j < answerorg[i].size(); j++){
             outfile << answerorg[i][j] << " ";
@@ -290,5 +299,7 @@ int main(int argc, char** argv) {
         outfile << endl;
     }
     
-    return 0;
+    if(i==0)
+        return "black.txt";
+    return "red.txt";
 }
