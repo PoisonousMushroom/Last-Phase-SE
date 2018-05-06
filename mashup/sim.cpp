@@ -7,6 +7,7 @@
 #include <iostream>
 #include "../simulator/world.h"
 #include "aux.h"
+#include "./assembler/assembler.h"
 
 
 using namespace std;
@@ -50,6 +51,8 @@ int main(int argc, string * argv)
     //specifies whether to print a short help message
     bool help=false;
     string file_world, red_bug,black_bug;
+    //holds the winner 
+    tcolor winner; 
 
     for(int i=0; i<argc; i++)
     {
@@ -168,6 +171,10 @@ int main(int argc, string * argv)
     }
     else
     {
+        //the assembler conversion of the bug files
+        red_bug=convert(red_bug,1);
+        black_bug=convert(black_bug,0);
+
         string s=file_world+" "+red_bug+" "+black_bug;
         World w;
         w.load(s);
@@ -176,9 +183,98 @@ int main(int argc, string * argv)
             w.execute_cycle();
             if(stats==true && i%every==0)
             {
+                winner = w.winner();
                 if(log == 0)
                 {
-                    w.winner()
+                    cout<<"For round "<<i<<"the winners are the ";
+                    if(winner.c==0)
+                        cout<<"black bugs\n";
+                    else
+                        cout<<"red bugs\n";
+                }
+                if(log==1)
+                {
+                    cout<<"After cycle "<<i<<"\n";
+                    cout<<"========== cell ========== ======= bug ======\n"
+                    "        b b\n"
+                    "        a i                    cbd\n"
+                    "pos pos s t  red    black      oii\n"
+                    " x   y  e s  marks  marks  id  ktr state rest\n"
+                    "=== === = == ====== ====== === === ===== ====\n"
+                    "...\n";
+                    int bits=0;// ammount of food in cell
+                    int id;//bug id
+                    int state;//bug state
+                    for(int k=0;k<w.get_length();k++)
+                    {
+                        for(int j=0;j<w.get_width();j++)
+                        {
+                            tposition p(k,j);
+                            Cell* c=w.get_cell(p);
+                            if(k<10)
+                                cout<<"00"<<k;
+                            else if(k<100)
+                                    cout<<"0"<<k;
+                            else   
+                                cout<<k;
+                            if(j<10)
+                                cout<<" 00"<<j;
+                            else if(j<100)
+                                cout<<" 0"<<j;
+                            else 
+                                cout<<" "<<j;
+                            if(c->is_black_home_area())
+                                cout<<" b ";
+                            if(c->is_red_home_area())
+                                cout<<" r ";
+
+                            bits=c->get_food();
+                            if(bits<10)
+                                cout<<"0"<<bits<<" ";
+                            else
+                                cout<<bits<<" ";
+                            //check marks for red
+                            for(int ve=5;ve>=0;ve--)
+                            {
+                                if(c->mark.check_marker(tmark(ve),tcolor(1)))
+                                    cout<<ve;
+                                else 
+                                    cout<<"_";
+                            }
+                            //check marks for black
+                            cout<<" ";
+                            for(int ve=5;ve>=0;ve--)
+                            {
+                                if(c->mark.check_marker(tmark(ve),tcolor(0)))
+                                    cout<<ve;
+                                else 
+                                    cout<<"_";
+                            }
+                            cout<<" ";
+                            if(c->occupied())
+                            {
+                                Bug* b=c->get_occupant();
+                                id=b->get_prog_id();
+                                if(id<10)
+                                    cout<<"00"<<id<<" ";
+                                else if(id<100)
+                                    cout<<"0"<<id<<" ";
+                                else 
+                                    cout<<id<<" ";
+                                if(b->get_color().c==0)
+                                    cout<<"b";
+                                else 
+                                    cout<<"r";
+                                if(b->get_has_food())
+                                    cout<<"X";
+                                else    
+                                    cout<<"_";
+                                cout<<b->get_direction()<<" ";
+
+                            }
+                            cout<<"\n";
+                        }
+                    }
                 }
             }
         }

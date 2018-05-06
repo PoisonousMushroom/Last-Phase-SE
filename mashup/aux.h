@@ -73,7 +73,7 @@ namespace aux{
         tmark():m(0){};
         tmark(int x){
             if(x<0||x>5)
-                throw Exceptiion("The mark is out of boundaries\n");
+                throw Exception("The mark is out of boundaries\n");
             m=x;
         };
     };
