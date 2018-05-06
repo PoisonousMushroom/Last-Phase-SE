@@ -9,10 +9,11 @@
 #include <vector>
 #include <string>
 
-void I_pickup::execute(Bug b, World w)
+
+void I_pickup::execute(Bug b)
 {
     aux::tposition t=b.get_position();
-    Cell &cell=*w.get_cell(t);
+    Cell &cell=*w->get_cell(t);
     if(b.get_food()||cell.get_food()==0)
     {
         b.set_state(y);

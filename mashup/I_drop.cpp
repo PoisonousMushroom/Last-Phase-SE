@@ -10,16 +10,16 @@
 #include <string>
 
 
-void I_drop::execute(Bug b, World w )
+void I_drop::execute(Bug b )
 {
     aux::tposition t=b.get_position();
-    Cell &cell=*(w.get_cell(t));
+    Cell &cell=*(w->get_cell(t));
     if(b.get_food())
     {
         cell.set_food(cell.get_food()+1);
         b.set_food(false);
     }
-    b.set_state(z);   
+    b.set_state(z);
 }
 
 void I_drop::parse(string args)

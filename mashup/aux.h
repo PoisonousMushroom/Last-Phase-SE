@@ -15,7 +15,7 @@
 using namespace std;
 namespace aux{
     struct tcolor{
-        int c; //0 or 1 for black or red 
+        int c; //0 or 1 for black or red
         tcolor(int x){
             if(x!=0&&x!=1)
                 throw Exception("The color is not in proper boundaries\n");
@@ -32,6 +32,16 @@ namespace aux{
             d=x;
         };
         tdirection():d(0){};
+        tdirection(string s)
+        {
+            d=0;
+            for(int i=0;i<s.size();i++)
+            {
+                d=d*10+(s[i]-'0');
+            }
+            if(d<0||d>5)
+                throw Exception("The direction is out of boundaries\n");
+        }
     };
 
     struct tsensedir{
@@ -51,7 +61,7 @@ namespace aux{
                 s=2;
             else if(a=="rightahead")
                 s=3;
-            else 
+            else
             throw Exception("The sense direction is out of boundaries\n");
         };
     };
@@ -92,7 +102,12 @@ namespace aux{
                 throw Exception("The state is out of boundaries\n");
         };
         tstate():st(0){};
-        tstate(string x):st(stoi(x)){
+        tstate(string x){
+            st=0;
+            for(int i=0;i<x.size();i++)
+            {
+                st=st*10+(x[i]-'0');
+            }
             if(st<0||st>9999)
                 throw Exception("The state is out of boundaries\n");
         };
@@ -110,7 +125,7 @@ namespace aux{
             else if(s=="foe")
                 cond=1;
             else if(s=="friendwithfood")
-                cond==2;
+                cond=2;
             else if(s=="foewithfood")
                 cond=3;
             else if(s=="food")

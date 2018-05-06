@@ -8,25 +8,26 @@
 #ifndef INSTRUCTION_SENSE_H
 #define INSTRUCTION_SENSE_H
 
-#include "instruction.h"
-
+#include "aux.h"
+#include "bug.h"
+#include "world.h"
 using namespace aux;
-
-class I_sense: public Instruction 
-{
+class World;
+class I_sense{
 public:
     
     /*
      * Execute this instruction on a given bug.
      * @param b: Bug to execute the instruction on.
      */
-    void execute(Bug b, World w);
+    void execute(Bug b);
     
     /*
      * Parse the instruction, given a string.
      * @param instr: coded instruction in string to parse the instruction from.
      */
     void parse(std::string args);
+    World *w;
 private:
     tstate x, y;
     tsensedir dir;

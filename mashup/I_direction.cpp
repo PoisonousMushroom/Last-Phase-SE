@@ -18,7 +18,7 @@ void I_direction::execute(Bug b)
         b.set_state(x);
     }
     else
-        b.set_state(y);   
+        b.set_state(y);
 }
 
 void I_direction::parse(string args)
@@ -27,7 +27,7 @@ void I_direction::parse(string args)
     vector<string>::iterator it=command.begin();
     it++;
     string s=*it;
-    aux::tdirection a(std::stoi(s));
+    aux::tdirection a(s);
     d=a;
     it++;
     s=*it;

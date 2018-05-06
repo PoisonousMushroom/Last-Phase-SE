@@ -106,13 +106,13 @@ void sensecell(int x, int y, aux::tdirection d,aux::tsensedir sen,int *sensex,in
     }
 }
 
-void I_sense::execute(Bug b, World w){
+void I_sense::execute(Bug b){
     int sensex, sensey;
     aux::tposition t=b.get_position();
     aux::tdirection d=b.get_direction();
     aux::tcolor c=b.get_color();
     sensecell(t.x,t.y,d,dir,&sensex,&sensey);
-    if(cellmatch(w,sensex,sensey,condition,c))
+    if(cellmatch(*w,sensex,sensey,condition,c))
     {
         b.set_state(x);
     }

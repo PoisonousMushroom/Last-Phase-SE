@@ -11,14 +11,14 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "Cell.h"
+#include "cell.h"
 #include <algorithm>
 #include "program.h"
 #include "tokenizer.h"
 using namespace std;
 
 /*
- * 
+ *
  */
 
 bool even(int n){
@@ -40,7 +40,7 @@ int World::load(string filenames){
     red.c = 1;
     int bbcount = 0;
     int rbcount = 0;
-    wf.open(*it, ios::in);
+    wf.open((*it).c_str(), ios::in);
     if(wf.is_open()){
         wf >> width >> length;
     }
@@ -50,15 +50,15 @@ int World::load(string filenames){
     }
     cout << "Width: "<< width << endl;
     cout << "Length: " << length << endl;
-    
+
     cell_container.resize(length);
     cout << "Mother vector resized \n" ;
-            
+
     for(size_t i = 0; i < width; i++){
         cell_container[i].resize(width);
     }
     cout << "Child vectors resized \n";
-    
+
     getline(wf, line);
     cout << line;
     for (int l = 0; l < length; l++){
@@ -69,9 +69,9 @@ int World::load(string filenames){
             Cell *new_cell = new Cell(line[w]);
             cell_container[l][w] = new_cell;
             if(line[w] == '+'){
-                //Bug new_bug = (new_cell->get_occupant());                
+                //Bug new_bug = (new_cell->get_occupant());
                 Bug *new_bug = new Bug(red, rbcount+bbcount, 0);
-                new_bug->set_position(l, w);
+                new_bug->set_position(tposition(l, w));
                 new_bug->set_food(false);
                 redbugs.push_back(new_bug);
                 new_cell->set_occupant(redbugs[rbcount]);
@@ -81,22 +81,22 @@ int World::load(string filenames){
             if(line[w] == '-'){
                 //Bug new_bug = (new_cell->get_occupant());
                 Bug *new_bug = new Bug(black, bbcount+rbcount, 0);
-                new_bug->set_position(l, w);
+                new_bug->set_position(tposition(l, w));
                 new_bug->set_food(false);
                 blackbugs.push_back(new_bug);
                 new_cell->set_occupant(blackbugs[bbcount]);
                 bbcount++;
                 //cout << "Black bug home base found; Creating a bug...\n";
             }
-            
+
             //cout << "Cell assigned successfully" << endl;
         }
         cout << endl;
-        
+
     }
     it++;
-    pb=Program(*it,*this);//program black bugs
-    pr=Program(*it,*this);//program red bugs
+    *pb=Program(*it,*this);//program black bugs
+    *pr=Program(*it,*this);//program red bugs
     cout << "World initialization complete. \n";
     return 0;
 }
@@ -176,14 +176,14 @@ aux::tposition World::adjacent(aux::tdirection dir, aux::tposition pos){
             break;
     }
     return res;
-    
+
 }
 
-//Implemented Oana's 
+//Implemented Oana's
 aux::tcolor World::other_color(aux::tcolor c){
     aux::tcolor res;
     res.c = 1 - c.c;
-    
+
     return res;
 }
 
@@ -227,10 +227,10 @@ void World::log(string msg){
     logfile.open("log.txt", ios::out);
     if(logfile.is_open()){
         logfile << msg << endl;
-        cout << "successfully logged \n"; 
+        cout << "successfully logged \n";
     }
     logfile.close();
-    
+
 }
 
 void World::print_grid(){
@@ -262,7 +262,7 @@ bool World::set_food_at(aux::tposition p, int f){ //not additive;
         get_cell(p)->set_food(f);
     }
 };
-    
+
 bool World::base_at(aux::tposition p, aux::tcolor c){
     if(c.c = 0){
         return get_cell(p)->is_black_home_area();
@@ -272,7 +272,7 @@ bool World::base_at(aux::tposition p, aux::tcolor c){
 bool World::other_base_at(aux::tposition p, aux::tcolor c){
     return !base_at(p, c);
 };
-    
+
 //Martial arts
 int World::adjacent_other_bugs(aux::tposition p, aux::tcolor c){
     aux::tdirection d;
@@ -303,8 +303,8 @@ void World::kill_if_surrounded(aux::tposition p){
             if (b->get_food()){ //drop an extra food if bug had one
                 i = 1;
             }
-            
-            //set the cell up accordingly 
+
+            //set the cell up accordingly
             set_food_at(p, (5 + i));
             cout << "Coordinates of the dead bug: \n" << "x: " << p.x << " y: " << p.y << endl;
             get_cell(p)->get_occupant()->kill();
@@ -336,12 +336,12 @@ void World::execute_cycle()
    {
         if(redbugs[r]->get_progid()==i)
         {
-           pr.step(*redbugs[r],*this);
+           pr->step(*redbugs[r],*this);
            r++;
         }
         if(blackbugs[b]->get_progid()==i)
         {
-            pr.step(*blackbugs[b],*this);
+            pb->step(*blackbugs[b],*this);
             b++;
         }
    }

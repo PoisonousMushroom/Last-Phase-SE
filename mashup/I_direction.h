@@ -7,12 +7,12 @@
 
 #ifndef I_DIRECTION_H
 #define I_DIRECTION_H
-#include "instruction.h"
 
+#include "aux.h"
+#include "bug.h"
 using namespace aux;
 
-class I_direction: public Instruction 
-{
+class I_direction{
 public:
     
     /*

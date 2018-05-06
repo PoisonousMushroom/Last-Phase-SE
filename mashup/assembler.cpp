@@ -11,7 +11,7 @@
 #include <map>
 #include <sstream>
 #include <vector>
-#include "../exception.h"
+#include "exception.h"
 #include <numeric>
 #include <valarray> //accumulate()
 
@@ -51,17 +51,17 @@ vector<std::string> split(string s, char delim){
     }
     return elems;
 }
-string convert(string s, int i) { 
-    
+string convert(char* s, int i) {
+
     //Dictionary of known key words
-    //The integer values indicate the total number of words that 
+    //The integer values indicate the total number of words that
     //   belong to that keyword.
     //   e.g. "sense" takes in 2 arguments, such as "sense ahead food"
-    //      which takes up 3 words. 
-    
+    //      which takes up 3 words.
+
     map<string, int> known;
-    known["sense"] = 3; //sense sensedir cond 
-    known["move"] = 1; // move 
+    known["sense"] = 3; //sense sensedir cond
+    known["move"] = 1; // move
     known["pickup"] = 1; // pickup
     known["flip"] = 2; // flip p
     known["turn"] = 2; // turn lr
@@ -71,14 +71,14 @@ string convert(string s, int i) {
     known["direction"] = 2; // direction d
     known["goto"] = 1; // goto
     known["else"] = 1; // else
-            
-    
-    //Vector for storing all the lines, word by word 
+
+
+    //Vector for storing all the lines, word by word
     vector< vector<string> > rawlines;
-    
+
     //Map for storing position values of labels
     map<string, int> labels;
-    
+
     //Vector for storing answer strings to be spit out
     vector< vector<string> > answers;
     answers.resize(100);
@@ -105,17 +105,17 @@ string convert(string s, int i) {
         if(c[0] != ';' && c[0] != '_'){
             vector<string> temp = split(c, ' ');
             rawlines.push_back(temp);
-            
+
             //cout << c << endl;
         }
-        if(c[0] == '_'){ //we assume that all labels start with _ to remove ambiguity 
+        if(c[0] == '_'){ //we assume that all labels start with _ to remove ambiguity
             string label = c.substr(0, c.size()-1);
             rawlines.push_back(split(label, ' '));
             labels[label] = -1;
             //cout << label << labels[label];
         }
     }
-    
+
     int line_count = 0;
     //Processing the input file
     for (int i = 0; i < rawlines.size(); i++){
@@ -124,7 +124,7 @@ string convert(string s, int i) {
          //   cout << rawlines[i][l] << " " ;
         }
         //cout << endl;
-        
+
         bool senseflag = false;
         string sensearg = "";
         int next_line = line_count + 1;
@@ -133,14 +133,14 @@ string convert(string s, int i) {
             labels[rawlines[0][0]] = 0;
             cout << "First label detected." << endl;
         }
-        
+
         else if(i != 0 && rawlines[i][0][0] == '_'){
             //cout << i << endl;
             labels[rawlines[i][0]] = line_count;
             cout << "Label detected; Assigning new line number..." << endl;
         }
-        
-        //if it's not a label, then parse it 
+
+        //if it's not a label, then parse it
         else{
             //cout << i << endl;
             //cout << "parsing lines" << endl;
@@ -154,10 +154,10 @@ string convert(string s, int i) {
                         case 1:
                             //move, pickup, drop, goto, else (no arg)
                             answers[line_count].push_back(rawlines[i][j]);
-                            
+
                             answers[line_count].push_back(to_string(next_line));
                             next_step = &answers[line_count][j+1];
-                            
+
                             break;
                         case 2:
                             //flip, turn take one arg
@@ -168,13 +168,13 @@ string convert(string s, int i) {
                             j++; //skip the next word
                             break;
                         case 3:
-                            //sense takes 2 arg 
+                            //sense takes 2 arg
                             answers[line_count].push_back(rawlines[i][j]);
                             answers[line_count].push_back(rawlines[i][j+1]);
-                            
+
                             //we want the last arg of sense to be at the end
                             answers[line_count].push_back(to_string(next_line));
-                            
+
                             next_step = &answers[line_count][j+2];
                             senseflag = 1;
                             sensearg = rawlines[i][j+2];
@@ -199,8 +199,8 @@ string convert(string s, int i) {
                     }
                     line_count++;
                 }
-                
-    
+
+
                 if(i+1 < rawlines.size() && rawlines[i+1][0] == "goto"){
                     cout << "Processing goto" <<endl;
                     *next_step =  rawlines[i+1][1];
@@ -216,10 +216,10 @@ string convert(string s, int i) {
                     j++;
                     line_count++;
                 }
-                
-                
-                
-                 
+
+
+
+
 
             }
         }
@@ -230,15 +230,15 @@ string convert(string s, int i) {
                 cout << answers[line_count-1][m] << " ";
             }
             cout << endl << endl;
-            
+
         }
     */
     }
     cout << endl;
-    
-    //Verify that the buggy file has been parsed correctly 
+
+    //Verify that the buggy file has been parsed correctly
     //Write the outcome to output.txt
-    
+
     //cout << "\nProcessed output: \n";
     for(int a = 0; a < line_count; a++){
         //cout << "[" <<  a << "] ";
@@ -254,7 +254,7 @@ string convert(string s, int i) {
     }
     outfile.close();
     /////////////////////////////////////////
-    
+
     /////////////////////////////////////////
     //Process the output text: replace _ keywords with respective ints from label map
     fstream step2;
@@ -263,13 +263,13 @@ string convert(string s, int i) {
         cout << "Step 2: output.txt is not available for secondary processing.\n";
         throw Exception("Output is not available for second process\n");
     }
-    
+
     while (getline(step2, c)){
-        
+
         vector<string> temp = split(c, ' ');
         answerorg.push_back(temp);
     }
-    
+
     for (int i = 0; i < line_count; i++){
         for(int j = 0; j < answerorg[i].size(); j++){
             if(answerorg[i][j][0] == '_'){
@@ -278,10 +278,10 @@ string convert(string s, int i) {
             }
         }
     }
-    
-    
+
+
     printvv(answerorg);
-    
+
     //Rewrite the result into final.txt
     if(i==0)
     {
@@ -304,7 +304,7 @@ string convert(string s, int i) {
         }
         outfile << endl;
     }
-    
+
     if(i==0)
         return "black.txt";
     return "red.txt";

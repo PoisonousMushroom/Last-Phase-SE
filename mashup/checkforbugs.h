@@ -10,7 +10,7 @@
 
 #include "world.h"
 #include "bug.h"
-#include "Cell.h"
+#include "cell.h"
 #include "adjacent_cell.h"
 #include "aux.h"
 

@@ -7,6 +7,7 @@
 #include "I_flip.h"
 #include <vector>
 #include <string>
+#include "tokenizer.h"
 
 void I_flip::execute(Bug b)
 {
@@ -23,7 +24,11 @@ void I_flip::parse(string args)
     vector<string>::iterator it=command.begin();
     it++;
     string s=*it;
-    p=std::stoi(s);
+    p=0;
+    for(int i=0;i<s.size();i++)
+    {
+        p=p*10+(s[i]-'0');
+    }
     it++;
     s=*it;
     aux::tstate aux(s);

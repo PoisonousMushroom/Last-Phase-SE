@@ -7,11 +7,11 @@
 #ifndef INSTRUCTION_TURN_H
 #define INSTRUCTION_TURN_H
 
-#include "instruction.h"
+#include "aux.h"
+#include "bug.h"
 using namespace aux;
 
-class I_turn: public Instruction 
-{
+class I_turn{
 public:
     
     /*

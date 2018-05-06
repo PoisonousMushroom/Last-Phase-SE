@@ -8,12 +8,13 @@
 
 #ifndef L_DROP_H
 #define L_DROP_H
-#include "instruction.h"
 
+#include "world.h"
+#include "aux.h"
+#include "bug.h"
 using namespace aux;
-
-class I_drop: public Instruction 
-{
+class World;
+class I_drop {
 public:
     
     /*
@@ -21,13 +22,14 @@ public:
      * @param b: Bug to execute the instruction on.
      * @param w: The world in which we need to action
      */
-    void execute(Bug b, World w);
+    void execute(Bug b);
     
     /*
      * Parse the instruction, given a string.
      * @param args: coded instruction in string to parse the instruction from.
      */
     void parse(std::string args);
+    World *w;
 private:
     tstate z;
 };

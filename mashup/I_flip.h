@@ -7,19 +7,21 @@
 #ifndef INSTRUCTION_FLIP_H
 #define INSTRUCTION_FLIP_H
 
-#include "instruction.h"
+#include "aux.h"
+#include "bug.h"
+#include <math.h>
+
 using namespace aux;
 
-class I_flip: public Instruction 
-{
+class I_flip{
 public:
-    
+
     /*
      * Execute this instruction on a given bug.
      * @param b: Bug to execute the instruction on.
      */
     void execute(Bug b);
-    
+
     /*
      * Parse the instruction, given a string.
      * @param args: coded instruction in string to parse the instruction from.

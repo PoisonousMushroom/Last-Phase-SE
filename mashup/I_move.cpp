@@ -12,14 +12,14 @@
 #include "checkforbugs.h"
 
 
-void I_move::execute(Bug b, World w)
+void I_move::execute(Bug b)
 {
     int nx,ny;
     aux::tposition t=b.get_position();
-    adjacentCell(t.x,t.y,b.get_direction(),&nx,&ny);
+    adjacentCell(t.x,t.y,b.get_direction().d,&nx,&ny);
     aux::tposition n(nx,ny);
-    Cell &cell=*w.get_cell(n);
-    Cell &oldcell=*w.get_cell(t);
+    Cell &cell=*w->get_cell(n);
+    Cell &oldcell=*w->get_cell(t);
     if(cell.get_obstructed()||cell.occupied())
     {
         b.set_state(y);
@@ -28,10 +28,10 @@ void I_move::execute(Bug b, World w)
     {
         cell.set_occupant(&b);
         oldcell.set_occupancy(false);
-        b.set_position(nx,ny);
+        b.set_position(tposition(nx,ny));
         b.set_state(x);
         b.start_resting();
-        checkforbugs(&w,nx,ny);
+        checkforbugs(w,nx,ny);
     }
 }
 

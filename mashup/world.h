@@ -9,16 +9,17 @@
 #include "bug.h"
 #include "aux.h"
 #include <vector>
-#include "Cell.h"
+#include "cell.h"
 #include "program.h"
 #define MAX_SIZE 500;
 
+class Program;
 class World{
 private:
     int width;
     int length;
-    Program pb;//program for black bugs
-    Program pr; //program for red bugs
+    Program *pb;//program for black bugs
+    Program *pr; //program for red bugs
     std::vector<Bug*> redbugs;
     std::vector<Bug*> blackbugs;
     std::vector< std::vector<Cell*> > cell_container;
@@ -78,7 +79,6 @@ public:
     int adjacent_other_bugs(aux::tposition, aux::tcolor);
     void kill_if_surrounded(aux::tposition);
     void check_for_surrounded_bugs(aux::tposition);
-    void execute_cycle();
 };
 
 

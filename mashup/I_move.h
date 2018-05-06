@@ -7,14 +7,18 @@
 
 #ifndef I_MOVE_H
 #define I_MOVE_H
-#include "aux.h"
 
+#include "aux.h"
+#include "world.h"
+#include "bug.h"
+class World;
 class I_move{
 private:
     aux::tstate x;
     aux::tstate y;
 public:
-    void execute(Bug b, World w);
+    World *w;
+    void execute(Bug b);
     void parse(string args);
 };
 
