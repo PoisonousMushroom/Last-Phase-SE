@@ -1,4 +1,4 @@
-
+#include "exception.h"
 
 #ifndef AUX_H
 #define AUX_H
@@ -11,7 +11,7 @@ namespace aux{
         int c; //0 or 1 for black or red 
         tcolor(int x){
             if(x!=0&&x!=1)
-                throw"The color is not in proper boundaries\n";
+                throw Exception("The color is not in proper boundaries\n");
             c=x;
         };
         tcolor():c(0){};
@@ -21,7 +21,7 @@ namespace aux{
         int d;
         tdirection(int x){
             if(x<0||x>5)
-                throw "The direction is out of boundaries\n";
+                throw Exception("The direction is out of boundaries\n");
             d=x;
         };
         tdirection():d(0){};
@@ -31,7 +31,7 @@ namespace aux{
         int s;
         tsensedir(int x){
             if(x<0||x>3)
-                throw "The sense direction is out of boundaries\n";
+                throw Exception("The sense direction is out of boundaries\n");
             s=x;
         };
         tsensedir(string a){
@@ -45,7 +45,7 @@ namespace aux{
             else if(a=="rightahead")
                 s=3;
             else 
-            throw "The sense direction is out of boundaries\n";
+            throw Exception("The sense direction is out of boundaries\n");
         };
     };
 
@@ -53,7 +53,7 @@ namespace aux{
         int l;
         tleftright(int x){
             if(x!=0||x!=1)
-                throw "The leftright parameter is out of boundaries\n";
+                throw Exception("The leftright parameter is out of boundaries\n");
             l=x;
         };
         tleftright(string s)
@@ -64,7 +64,7 @@ namespace aux{
             else if(s=="right")
                 l=1;
             else
-                throw "The leftright parameter is out of boundaries\n";
+                throw Exception("The leftright parameter is out of boundaries\n");
         }
     };
 
@@ -73,7 +73,7 @@ namespace aux{
         tmark():m(0){};
         tmark(int x){
             if(x<0||x>5)
-                throw "The mark is out of boundaries\n";
+                throw Exceptiion("The mark is out of boundaries\n");
             m=x;
         };
     };
@@ -82,12 +82,12 @@ namespace aux{
         int st;
         tstate(int x):st(x){
             if(st<0||st>9999)
-                throw "The state is out of boundaries\n";
+                throw Exception("The state is out of boundaries\n");
         };
         tstate():st(0){};
         tstate(string x):st(stoi(x)){
             if(st<0||st>9999)
-                throw "The state is out of boundaries\n";
+                throw Exception("The state is out of boundaries\n");
         };
     };
 
@@ -128,7 +128,7 @@ namespace aux{
                 cond=13;
             else if(s=="marker(5)")
                 cond=14;
-            else throw "Unspecified condition\n";
+            else throw Exception("Unspecified condition\n");
         }
     };
 
