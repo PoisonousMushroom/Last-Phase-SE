@@ -4,35 +4,40 @@
 */
 #include <algorithm>
 #include "exception.h"
+#include "marker.h"
 #include <iostream>
 #include "world.h"
 #include "aux.h"
-#include "./assembler/assembler.h"
+#include "string.h"
+#include "assembler.h"
+
 
 
 using namespace std;
 using namespace aux;
 
 
-bool check_if_int(string v)
+int check_if_int(char* v)
 {
     int i=0;
-    while(i<v.size())
+    int x=0;
+    while(i<strlen(v))
     {
         if(v[i]<='9'&&v[i]>='0')
         {
             i++;
+            x=x*10+v[i]-'0';
         }
         else
         {
-            return false;
+            return -100;
         }
     }
-    return true;
+    return x;
 }
 
-int main(int argc, string * argv)
-{
+int main(int argc, char** argv)
+{   
     //number of cycles to be run
     int cycles=1000;
     //whether the files for the red and black bugs must be swapped
@@ -54,46 +59,46 @@ int main(int argc, string * argv)
     //holds the winner 
     tcolor winner; 
 
-    for(int i=0; i<argc; i++)
+    for(int i=1; i<argc; i++)
     {
-        if("-n"==argv[i] || "--cycles"==argv[i] )
+        if(strcmp("-n",argv[i])==0 || strcmp("--cycles",argv[i])==0 )
         {
             i++;
-            if(check_if_int(argv[i]))
+            if(check_if_int(argv[i])!=-100)
             {
-                cycles=stoi(argv[i]);
+                cycles=check_if_int(argv[i]);
             }
             else{
                 throw Exception("The number of cycles must be a natural number\n");
             }  
         }
-        else if("-x"==argv[i] || "--swap"==argv[i])
+        else if(strcmp("-x",argv[i])==0 || strcmp("--swap",argv[i])==0)
         {
             reverse=true;
         }
-        else if("-s"==argv[i] || "--stats"==argv[i])
+        else if(strcmp("-s",argv[i])==0 || strcmp("--stats",argv[i])==0)
         {
             stats=true;
         }
-        else if("-e"==argv[i] || "--every"==argv[i])
+        else if(strcmp("-e",argv[i])==0 || strcmp("--every",argv[i])==0)
         {
             i++;
-            if(check_if_int(argv[i]))
+            if(check_if_int(argv[i])!=-100)
             {
-                every=stoi(argv[i]);
+                every=check_if_int(argv[i]);
             }
             else{
                 throw Exception("The every field must be a natural number\n");
             }  
         }
-        else if("-l"==argv[i] || "--log"==argv[i])
+        else if(strcmp("-l",argv[i])==0 || strcmp("--log",argv[i])==0)
         {
             i++;
-            if("selab"==argv[i])
+            if(strcmp("selab",argv[i])==0)
             {
                 log=1;
             }
-            else if("ascii"==argv[i])
+            else if(strcmp("ascii",argv[i])==0)
             {
                 log=2;
             }
@@ -102,13 +107,13 @@ int main(int argc, string * argv)
                 throw Exception("This is not a valid format for the log \n");
             }
         }
-        else if("-h"==argv[i] || "--help"==argv[i])
+        else if(strcmp("-h",argv[i])==0 || strcmp("--help",argv[i])==0)
         {
-            if(i!=0)
+            if(i!=1)
             {
                 throw Exception("You can't call help with other options\n");
             }
-            if(argc!=1)
+            if(argc!=2)
             {
                 throw Exception("You can't call help with any other options or filenames\n");
             }
@@ -116,7 +121,7 @@ int main(int argc, string * argv)
         }
         else if(argc-3==i)
         {
-            if(argv[i].find(".world")==string::npos || argv[i].find(".world")!=argv[i].size()-6)
+            if(strstr(argv[i],".world")==NULL || strstr(argv[i],".world")!=argv[i]+strlen(argv[i])-6)
             {
                 throw Exception("The command does not have a right structure. Use -h or --help for more details\n");
             }
@@ -127,7 +132,7 @@ int main(int argc, string * argv)
         }
         else if(argc-2==i)
         {
-            if(argv[i].find(".bug")==string::npos || argv[i].find(".bug")!=argv[i].size()-4)
+            if(strstr(argv[i],".bug")==NULL || strstr(argv[i],".bug")!=argv[i]+strlen(argv[i])-4)
             {
                 throw Exception("The command does not have a right structure. Use -h or --help for more details\n");
             }
@@ -141,7 +146,7 @@ int main(int argc, string * argv)
         }
         else if(argc-1==i)
         {
-            if(argv[i].find(".bug")==string::npos || argv[i].find(".bug")!=argv[i].size()-4)
+            if(strstr(argv[i],".bug")==NULL || strstr(argv[i],".bug")!=argv[i]+strlen(argv[i])-4)
             {
                 throw Exception("The command does not have a right structure. Use -h or --help for more details\n");
             }
@@ -172,8 +177,8 @@ int main(int argc, string * argv)
     else
     {
         //the assembler conversion of the bug files
-        red_bug=convert(red_bug,1);
-        black_bug=convert(black_bug,0);
+        red_bug=convert(red_bug.c_str(),1);
+        black_bug=convert(black_bug.c_str(),0);
 
         string s=file_world+" "+red_bug+" "+black_bug;
         World w;
@@ -237,7 +242,7 @@ int main(int argc, string * argv)
                             //check marks for red
                             for(int ve=5;ve>=0;ve--)
                             {
-                                if(c->mark.check_marker(tmark(ve),tcolor(1)))
+                                if( c->mark.check_marker(tmark(ve),tcolor(1)))
                                     cout<<ve;
                                 else 
                                     cout<<"_";

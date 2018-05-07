@@ -34,7 +34,6 @@ private:
     int seed=12345;
 
     int randomint(){
-        int i;
         int s1=(seed*22695477+1)%int(pow(2,30));
         int s2=(s1*22695477+1)%int(pow(2,30));
         int s3=(s2*22695477+1)%int(pow(2,30));

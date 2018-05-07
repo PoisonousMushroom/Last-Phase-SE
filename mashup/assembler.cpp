@@ -12,6 +12,7 @@
 #include <sstream>
 #include <vector>
 #include "exception.h"
+#include "assembler.h"
 #include <numeric>
 #include <valarray> //accumulate()
 
@@ -51,7 +52,7 @@ vector<std::string> split(string s, char delim){
     }
     return elems;
 }
-string convert(char* s, int i) {
+string convert(char const* s, int i) {
 
     //Dictionary of known key words
     //The integer values indicate the total number of words that

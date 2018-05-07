@@ -8,19 +8,10 @@
 
 #ifndef TOKENIZER_H
 #define TOKENIZER_H
-
 #include <vector>
-#include <sstream>
-#include <iterator>
+#include <string>
 
-std::vector<std::string> tokens_in_vector(std::string args){
-    std::stringstream ss(args);
-    std::istream_iterator<std::string> begin(ss);
-    std::istream_iterator<std::string> end(ss);
-    std::vector<std::string> vstrings(begin, end);
-    return vstrings;
-    }
-
+std::vector<std::string> tokens_in_vector(std::string args);
 
 #endif /* TOKENIZER_H */
 

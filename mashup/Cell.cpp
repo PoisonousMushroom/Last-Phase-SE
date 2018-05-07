@@ -38,6 +38,7 @@ Cell::Cell(char symb) {
     } else {
         throw Exception("Invalid symbol\n");
     }
+    mark=Marker();
 
 }
 

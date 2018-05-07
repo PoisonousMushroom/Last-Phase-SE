@@ -1,0 +1,5 @@
+/home/oana/Last-Phase-SE/build/CMakeFiles/edit_cache.dir
+/home/oana/Last-Phase-SE/build/CMakeFiles/rebuild_cache.dir
+/home/oana/Last-Phase-SE/build/mashup/CMakeFiles/edit_cache.dir
+/home/oana/Last-Phase-SE/build/mashup/CMakeFiles/rebuild_cache.dir
+/home/oana/Last-Phase-SE/build/mashup/CMakeFiles/my_project_executable.dir
