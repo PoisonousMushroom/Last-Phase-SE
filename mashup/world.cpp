@@ -99,6 +99,7 @@ int World::load(string filenames){
     }
     it++;
     *pb=Program(*it,*this);//program black bugs
+    cout<<"what happened\n";
     *pr=Program(*it,*this);//program red bugs
     cout << "World initialization complete. \n";
     return 0;

@@ -28,10 +28,9 @@ Program::Program(string filename, World w)
     while(f.good())
     {
         getline(f,s);
-        printf("\n\n\n\n%s\n\n\n\n",s.c_str());
         vector<string> command=tokens_in_vector(s);
         vector<string>::iterator it=command.begin();
-        printf("The command at this step is %s \n",(*it).c_str());
+        printf("\nThe command at this step is %s \n",(*it).c_str());
         if(*it== "sense"){
             I_sense* t=new I_sense();
             t->parse(s);           
