@@ -295,6 +295,8 @@ tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
 fstream
 -
+exception.h
+/home/oana/Last-Phase-SE/mashup/exception.h
 
 /home/oana/Last-Phase-SE/mashup/program.h
 world.h
@@ -351,6 +353,8 @@ sstream
 -
 iterator
 -
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
 vector
@@ -379,6 +383,8 @@ algorithm
 -
 program.h
 /home/oana/Last-Phase-SE/mashup/program.h
+exception.h
+/home/oana/Last-Phase-SE/mashup/exception.h
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
 

@@ -97,10 +97,11 @@ string convert(char const* s, int i) {
     bool elseflag = 0;
     string c;
     fstream infile;
+    cout<<s<<endl;
     infile.open(s, ios::in);
     if(infile.fail()){
         cout << "Bug file is not accessible. \n";
-         throw Exception("The Bug file couldn't be accessed\n");
+        throw Exception("The Bug file couldn't be accessed\n");
     }
     while (getline(infile, c)){
         if(c[0] != ';' && c[0] != '_'){

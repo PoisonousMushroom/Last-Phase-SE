@@ -14,6 +14,7 @@
 #include "cell.h"
 #include <algorithm>
 #include "program.h"
+#include "exception.h"
 #include "tokenizer.h"
 using namespace std;
 
@@ -30,6 +31,7 @@ bool odd(int n){
 }
 
 int World::load(string filenames){
+    cout<<"1\n";
     vector<string> files=tokens_in_vector(filenames);
     vector<string>::iterator it=files.begin();
     ifstream wf,pf;
@@ -40,12 +42,13 @@ int World::load(string filenames){
     red.c = 1;
     int bbcount = 0;
     int rbcount = 0;
+    cout<<*it<<endl;
     wf.open((*it).c_str(), ios::in);
     if(wf.is_open()){
         wf >> width >> length;
     }
     else{
-        error("No such file exists. Check again? \n");
+        throw Exception("No such file exists. Check again? \n");
         return 1;
     }
     cout << "Width: "<< width << endl;

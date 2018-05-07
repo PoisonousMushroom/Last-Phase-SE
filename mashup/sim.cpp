@@ -182,7 +182,10 @@ int main(int argc, char** argv)
 
         string s=file_world+" "+red_bug+" "+black_bug;
         World w;
+        cout<<"Properly converted from assembler\n";
+        cout<<"The string to be loaded "<<s<<"\n";
         w.load(s);
+        cout<<"Properly loaded\n";
         for(int i=0;i<cycles;i++)
         {
             w.execute_cycle();

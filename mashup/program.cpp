@@ -7,6 +7,7 @@
 #include "program.h" 
 #include "tokenizer.h"
 #include <fstream>
+#include "exception.h"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ Program::Program(string filename, World w)
             I_sense* t;
             t->parse(s);
             t->w=&w;
+            printf("%s\n",s.c_str());
             lse.push_back(t);
             order[i]=make_pair(lse.size(),"sense");
             i++;
@@ -40,6 +42,7 @@ Program::Program(string filename, World w)
         else if(*it=="flip"){
             I_flip * f;
             f->parse(s);
+            printf("%s\n",s.c_str());
             lfl.push_back(f);
             order[i]=make_pair(lfl.size(),"flip");
             i++;
@@ -48,6 +51,7 @@ Program::Program(string filename, World w)
             I_pickup *p;
             p->parse(s);
             p->w=&w;
+            printf("%s\n",s.c_str());
             lpi.push_back(p);
             order[i]=make_pair(lpi.size(),"pickup");
             i++;
@@ -56,6 +60,7 @@ Program::Program(string filename, World w)
             I_mark* t;
             t->parse(s);
             t->w=&w;
+            printf("%s\n",s.c_str());
             lma.push_back(t);
             order[i]=make_pair(lma.size(),"mark");
             i++;
@@ -64,6 +69,7 @@ Program::Program(string filename, World w)
             I_unmark* u;
             u->parse(s);
             u->w=&w;
+            printf("%s\n",s.c_str());
             lun.push_back(u);
             order[i]=make_pair(lun.size(),"unmark");
             i++;
@@ -71,6 +77,7 @@ Program::Program(string filename, World w)
         else if(*it =="direction"){
             I_direction * d;
             d->parse(s);
+            printf("%s\n",s.c_str());
             ldi.push_back(d);
             order[i]=make_pair(ldi.size(),"direction");
             i++;
@@ -78,6 +85,7 @@ Program::Program(string filename, World w)
         else if(*it=="move"){    
             I_move * m;
             m->parse(s);
+            printf("%s\n",s.c_str());
             m->w=&w;
             lmo.push_back(m);
             order[i]=make_pair(lmo.size(),"move");
@@ -86,6 +94,7 @@ Program::Program(string filename, World w)
         else if(*it=="turn"){
             I_turn* t;
             t->parse(s);
+            printf("%s\n",s.c_str());
             ltu.push_back(t);
             order[i]=make_pair(ltu.size(),"turn");
             i++;
@@ -93,22 +102,17 @@ Program::Program(string filename, World w)
         else if(*it== "drop"){
             I_drop* dr;
             dr->parse(s);
+            printf("%s\n",s.c_str());
             dr->w=&w;
             ldr.push_back(dr);
             order[i]=make_pair(ldr.size(),"drop");
             i++; 
         }
         else{
-            throw "Unspecified command\n";
+            throw Exception("Unspecified command\n");
         }
     }
-    
-    
-    /*vector<string>::iterator it=command.begin();
-    for(it; it!=command.end();it++)
-    {
-        cout<<*it<<endl; checked if input well read
-    }*/
+    printf("well read\n");
     
 }
 
