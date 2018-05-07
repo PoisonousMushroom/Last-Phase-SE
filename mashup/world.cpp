@@ -191,6 +191,13 @@ aux::tcolor World::other_color(aux::tcolor c){
     return res;
 }
 
+World::World(){
+        width = 0;
+        length = 0;
+        pr=new Program();
+        pb=new Program();
+    };
+
 //winner method
 
 int World::red_food(){

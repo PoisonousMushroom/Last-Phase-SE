@@ -27,10 +27,7 @@ private:
     
     
 public:
-    World(){
-        width = 0;
-        length = 0;
-    };
+    World();
     ~World(){};
     int load(string);
     void execute_cycle();
