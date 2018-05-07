@@ -10,7 +10,7 @@
 #include "marker.h"
 #include "I_mark.h"
 #include "tokenizer.h"
-
+#include <iostream>
 
 void I_mark::execute(Bug b)
 {
@@ -35,4 +35,5 @@ void I_mark::parse(string args)
     s=*it;
     aux::tstate aux(s);
     z=aux;
+    std::cout<<"mark "<<m<<" "<<z.st<<std::endl;
 }

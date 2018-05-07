@@ -27,7 +27,11 @@ public:
      * @param args: coded instruction in string to parse the instruction from.
      */
     void parse(std::string args);
-
+    I_flip()
+    {
+        x=tstate();
+        y=tstate();
+    };
 private:
     int p;
     tstate x, y;

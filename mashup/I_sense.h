@@ -11,6 +11,7 @@
 #include "aux.h"
 #include "bug.h"
 #include "world.h"
+
 using namespace aux;
 class World;
 class I_sense{
@@ -27,6 +28,13 @@ public:
      * @param instr: coded instruction in string to parse the instruction from.
      */
     void parse(std::string args);
+    I_sense()
+    {
+        dir=tsensedir();
+        x=tstate(0);
+        y.st=0;
+        condition.cond=0;
+    };
     World *w;
 private:
     tstate x, y;

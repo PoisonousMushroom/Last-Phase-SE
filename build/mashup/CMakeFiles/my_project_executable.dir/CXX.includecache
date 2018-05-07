@@ -21,6 +21,8 @@ string
 -
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_direction.h
 aux.h
@@ -37,6 +39,8 @@ string
 -
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_drop.h
 world.h
@@ -55,6 +59,8 @@ string
 -
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_flip.h
 aux.h
@@ -75,6 +81,8 @@ I_mark.h
 /home/oana/Last-Phase-SE/mashup/I_mark.h
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_mark.h
 aux.h
@@ -97,6 +105,8 @@ adjacent_cell.h
 /home/oana/Last-Phase-SE/mashup/adjacent_cell.h
 checkforbugs.h
 /home/oana/Last-Phase-SE/mashup/checkforbugs.h
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_move.h
 aux.h
@@ -115,6 +125,8 @@ vector
 -
 string
 -
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_pickup.h
 aux.h
@@ -129,6 +141,8 @@ I_sense.h
 /home/oana/Last-Phase-SE/mashup/I_sense.h
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
+iostream
+-
 adjacent_cell.h
 /home/oana/Last-Phase-SE/mashup/adjacent_cell.h
 
@@ -149,6 +163,8 @@ string
 -
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_turn.h
 aux.h
@@ -167,6 +183,8 @@ string
 -
 tokenizer.h
 /home/oana/Last-Phase-SE/mashup/tokenizer.h
+iostream
+-
 
 /home/oana/Last-Phase-SE/mashup/I_unmark.h
 world.h
@@ -228,6 +246,8 @@ exception.h
 algorithm
 -
 string
+-
+iostream
 -
 
 /home/oana/Last-Phase-SE/mashup/bug.cpp

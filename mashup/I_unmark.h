@@ -28,6 +28,10 @@ public:
      */
     void parse(std::string args);
     World *w;
+    I_unmark()
+    {
+        z=tstate();
+    };
 private:
     int m;
     tstate z;

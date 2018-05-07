@@ -17,6 +17,11 @@ private:
     aux::tstate x;
     aux::tstate y;
 public:
+    I_move()
+    {
+        x=aux::tstate();
+        y=aux::tstate();
+    };
     World *w;
     void execute(Bug b);
     void parse(string args);

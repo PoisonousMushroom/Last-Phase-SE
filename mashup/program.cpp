@@ -28,11 +28,13 @@ Program::Program(string filename, World w)
     while(f.good())
     {
         getline(f,s);
+        printf("\n\n\n\n%s\n\n\n\n",s.c_str());
         vector<string> command=tokens_in_vector(s);
         vector<string>::iterator it=command.begin();
+        printf("The command at this step is %s \n",(*it).c_str());
         if(*it== "sense"){
-            I_sense* t;
-            t->parse(s);
+            I_sense* t=new I_sense();
+            t->parse(s);           
             t->w=&w;
             printf("%s\n",s.c_str());
             lse.push_back(t);
@@ -40,7 +42,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it=="flip"){
-            I_flip * f;
+            I_flip * f=new I_flip();
             f->parse(s);
             printf("%s\n",s.c_str());
             lfl.push_back(f);
@@ -48,7 +50,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it=="pickup"){
-            I_pickup *p;
+            I_pickup *p=new I_pickup();
             p->parse(s);
             p->w=&w;
             printf("%s\n",s.c_str());
@@ -57,7 +59,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it=="mark"){
-            I_mark* t;
+            I_mark* t=new I_mark();
             t->parse(s);
             t->w=&w;
             printf("%s\n",s.c_str());
@@ -66,7 +68,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it=="unmark"){
-            I_unmark* u;
+            I_unmark* u=new I_unmark();
             u->parse(s);
             u->w=&w;
             printf("%s\n",s.c_str());
@@ -75,7 +77,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it =="direction"){
-            I_direction * d;
+            I_direction * d=new I_direction();
             d->parse(s);
             printf("%s\n",s.c_str());
             ldi.push_back(d);
@@ -83,7 +85,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it=="move"){    
-            I_move * m;
+            I_move * m=new I_move();
             m->parse(s);
             printf("%s\n",s.c_str());
             m->w=&w;
@@ -92,7 +94,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it=="turn"){
-            I_turn* t;
+            I_turn* t=new I_turn();
             t->parse(s);
             printf("%s\n",s.c_str());
             ltu.push_back(t);
@@ -100,7 +102,7 @@ Program::Program(string filename, World w)
             i++;
         }
         else if(*it== "drop"){
-            I_drop* dr;
+            I_drop* dr=new I_drop();
             dr->parse(s);
             printf("%s\n",s.c_str());
             dr->w=&w;

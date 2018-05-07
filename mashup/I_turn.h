@@ -25,6 +25,10 @@ public:
      * @param instr: coded instruction in string to parse the instruction from.
      */
     void parse(std::string args);
+    I_turn(){
+        lr=tleftright(0);
+        z=tstate(0);
+    };
 private:
     tleftright lr;
     tstate z;

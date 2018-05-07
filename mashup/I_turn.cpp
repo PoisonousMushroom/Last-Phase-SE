@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 #include "tokenizer.h"
-
+#include <iostream>
 int turn (aux::tleftright l,aux::tdirection dir)
 {
     switch(l.l)
@@ -34,10 +34,12 @@ void I_turn::parse(string args)
     vector<string>::iterator it=command.begin();
     it++;
     string s=*it;
+    cout<<s<<endl;
     aux::tleftright aux(s);
     lr=aux;
     it++;
     s=*it;
     aux::tstate aux2(s);
+    std::cout<<"turn "<<lr.l<<" "<<aux2.st<<std::endl;
     z=aux2;
 }

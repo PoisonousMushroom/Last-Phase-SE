@@ -292,13 +292,17 @@ string convert(string s, int i) {
         }
     }
 
-    for (int i = 0; i < answerorg.size(); i++){
+    for (int i = 0; i < answerorg.size()-1; i++){
         for (int j = 0; j < answerorg[i].size(); j++){
             outfile << answerorg[i][j] << " ";
         }
         outfile << endl;
     }
-    
+    for(int j=0;j<answerorg[answerorg.size()-1].size();j++)
+    {
+        outfile << answerorg[answerorg.size()-1][j] << " ";
+    }
+
     if(i==0)
         return "black.txt";
     return "red.txt";

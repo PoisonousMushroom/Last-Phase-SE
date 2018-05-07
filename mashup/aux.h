@@ -12,6 +12,8 @@
 #include "exception.h"
 #include <algorithm>
 #include <string>
+#include <iostream>
+
 using namespace std;
 namespace aux{
     struct tcolor{
@@ -46,6 +48,9 @@ namespace aux{
 
     struct tsensedir{
         int s;
+        tsensedir(){
+            s=0;
+        }
         tsensedir(int x){
             if(x<0||x>3)
                 throw Exception("The sense direction is out of boundaries\n");
@@ -69,7 +74,7 @@ namespace aux{
     struct tleftright{
         int l;
         tleftright(int x){
-            if(x!=0||x!=1)
+            if(x!=0&&x!=1)
                 throw Exception("The leftright parameter is out of boundaries\n");
             l=x;
         };
@@ -82,6 +87,9 @@ namespace aux{
                 l=1;
             else
                 throw Exception("The leftright parameter is out of boundaries\n");
+        }
+        tleftright(){
+            l=0;
         }
     };
 
@@ -116,6 +124,7 @@ namespace aux{
     struct tcondition{
         /**/
         int cond;
+        tcondition():cond(0){};
         tcondition(int x):cond(x){};
         tcondition(string s)
         {

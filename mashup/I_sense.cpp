@@ -6,6 +6,7 @@
 
 #include "I_sense.h"
 #include "tokenizer.h"
+#include <iostream>
 #include "adjacent_cell.h"
 
 bool cellmatch(World w, int x, int y, aux::tcondition condition, aux::tcolor color)
@@ -138,14 +139,16 @@ void I_sense::parse(string args){
     dir=aux;
     it++;
     s=*it;
+    cout<<s<<endl;
     aux::tstate aux2(s);
-    x=aux2;
+    x.st=aux2.st;
     it++;
     s=*it;
     aux::tstate aux3(s);
-    y=aux3;
+    y.st=aux3.st;
     it++;
     s=*it;
     aux::tcondition t(s);
-    condition=t;
+    cout<<"sense "<<dir.s<<" "<<x.st<<" "<<y.st<<" "<<t.cond<<endl<<endl;
+    condition.cond=t.cond;
 }

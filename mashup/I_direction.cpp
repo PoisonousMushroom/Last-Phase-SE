@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 #include "tokenizer.h"
-
+#include <iostream>
 
 void I_direction::execute(Bug b)
 {
@@ -37,4 +37,5 @@ void I_direction::parse(string args)
     s=*it;
     aux::tstate aux2(s);
     y=aux2;
+    std::cout<<"direction "<<d.d<<" "<<x.st<<" "<<y.st<<std::endl;
 }

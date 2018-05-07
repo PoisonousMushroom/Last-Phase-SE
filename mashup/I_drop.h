@@ -30,6 +30,10 @@ public:
      */
     void parse(std::string args);
     World *w;
+    I_drop()
+    {
+        z=tstate();
+    };
 private:
     tstate z;
 };

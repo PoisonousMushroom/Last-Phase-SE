@@ -28,6 +28,11 @@ public:
      * @param instr: coded instruction in string to parse the instruction from.
      */
     void parse(std::string args);
+    I_pickup()
+    {
+        x=tstate();
+        y=tstate();
+    };
     World *w;
 private:
     tstate x, y;

@@ -10,7 +10,7 @@
 #include <string>
 #include "adjacent_cell.h"
 #include "checkforbugs.h"
-
+#include <iostream>
 
 void I_move::execute(Bug b)
 {
@@ -47,4 +47,5 @@ void I_move::parse(string args)
     s=*it;
     aux::tstate aux2(s);
     y=aux2;
+    std::cout<<"move "<<x.st<<" "<<y.st<<std::endl;
 }

@@ -26,6 +26,11 @@ public:
      * @param instr: coded instruction in string to parse the instruction from.
      */
     void parse(std::string instr);
+    I_direction(){
+        d=tdirection();
+        x=tstate();
+        y=tstate();
+    };
 private:
     tdirection d;
     tstate x, y;

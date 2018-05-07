@@ -9,7 +9,7 @@
 #include <vector>
 #include <string>
 #include "tokenizer.h"
-
+#include <iostream>
 
 void I_drop::execute(Bug b )
 {
@@ -31,4 +31,5 @@ void I_drop::parse(string args)
     string s=*it;
     aux::tstate aux(s);
     z=aux;
+    std::cout<<"drop "<<z.st<<std::endl;
 }
